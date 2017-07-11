@@ -33,7 +33,7 @@ public class Instrumentor extends ClassVisitor {
 	@Override
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
-		if (!isInterface && desc != null && !name.equals("<init>") && desc.indexOf("cn/com/gome/bottom/") >= 0) {
+		if (!isInterface && desc != null && !name.equals("<init>") && desc.indexOf("gome") >= 0) {
 			mv = new MethodInstrumentor(mv, name, desc, className);
 		}
 	

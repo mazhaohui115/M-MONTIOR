@@ -15,12 +15,12 @@ import cn.com.gome.monitor.runtime.Transformer;
 public class Magent {
 	public static void premain(String agentOps, Instrumentation inst) {
 		inst.addTransformer(new Transformer()); 
-		try {
-			inst.appendToBootstrapClassLoaderSearch(new JarFile("E://montior-util-0.0.1.jar"));
-		} catch (IOException e) {
-			System.out.println(e);
-			e.printStackTrace();
-		}
-		
+//		try {
+//			inst.appendToBootstrapClassLoaderSearch(new JarFile("E://montior-util-0.0.1.jar"));
+//		} catch (IOException e) {
+//			System.out.println(e);
+//			e.printStackTrace();
+//		}
+//		
 	}
 }

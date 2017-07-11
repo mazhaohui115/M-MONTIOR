@@ -22,8 +22,14 @@
 			<artifactId>asm-all</artifactId>
 			<version>5.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.fusesource</groupId>
+			<artifactId>sigar</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+
 	</dependencies>
-		<build>
+	<build>
 		<finalName>monitor</finalName>
 		<plugins>
 			<plugin>

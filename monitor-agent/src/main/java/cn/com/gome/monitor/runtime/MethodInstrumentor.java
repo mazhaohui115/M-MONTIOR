@@ -28,8 +28,8 @@ public class MethodInstrumentor  extends MethodVisitor{
 	
 	@Override
 	public void visitCode() {		
-		mv.visitLdcInsn(className+methodName+desc);
-		mv.visitMethodInsn(Opcodes.INVOKESTATIC, "cn/com/gome/monitor/util/TimeUtil", "setStartTime", "(Ljava/lang/String;)V", false);
+//		mv.visitLdcInsn(className+methodName+desc);
+		mv.visitMethodInsn(Opcodes.INVOKESTATIC, "cn/com/gome/monitor/util/TimeUtil", "setStartTime", "()V", false);
 		
 		
 		super.visitCode();
@@ -38,8 +38,8 @@ public class MethodInstrumentor  extends MethodVisitor{
 	@Override
 	public void visitInsn(int opcode) {
 		if ((opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN) || opcode == Opcodes.ATHROW) {			
-			mv.visitLdcInsn(className+methodName+desc);
-			mv.visitMethodInsn(Opcodes.INVOKESTATIC, "cn/com/gome/monitor/util/TimeUtil", "setEndTime", "(Ljava/lang/String;)V", false);
+//			mv.visitLdcInsn(className+methodName+desc);
+			mv.visitMethodInsn(Opcodes.INVOKESTATIC, "cn/com/gome/monitor/util/TimeUtil", "setEndTime", "()V", false);
 			
 			
 			mv.visitLdcInsn(className);
@@ -53,7 +53,8 @@ public class MethodInstrumentor  extends MethodVisitor{
 	}
 
 	@Override
-	public void visitEnd() {
-		super.visitEnd();
+	public void visitMaxs(int maxStack, int maxLocals) {
+		
+		  super.visitMaxs(maxStack, maxLocals);
 	}
 }
